@@ -43,7 +43,7 @@ namespace Snake
             foreach (var a in snake)
             {
                 a.rectangle.Fill = SnakeBrushes;
-                a.type = EnumActor.wall;
+                a.type = ActorType.wall;
             }
             snake[0].rectangle.Fill = SnakeHeadBrushes;
         }
@@ -68,7 +68,7 @@ namespace Snake
             foreach (var a in snake)
             {
                 a.rectangle.Fill = SnakeBrushes;
-                a.type = EnumActor.wall;
+                a.type = ActorType.wall;
             }
             snake[0].rectangle.Fill = SnakeHeadBrushes;
         }
@@ -114,22 +114,22 @@ namespace Snake
 
             switch (map.pole[(int)Head.Y, (int)Head.X].type)
             {
-                case EnumActor.grass:
+                case ActorType.grass:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type=EnumActor.wall;
+                    snake[0].type=ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
-                    snake[snake.Count - 1].rectangle.Fill = map.ColorPixel;
-                    snake[snake.Count - 1].type =EnumActor.grass ;
+                    snake[snake.Count - 1].rectangle.Fill = ColorActor.grass;
+                    snake[snake.Count - 1].type =ActorType.grass ;
                     snake.RemoveAt(snake.Count - 1);
                     break;
-                case EnumActor.wall:
+                case ActorType.wall:
                     hitWall();
                     break;
-                case EnumActor.apple:
+                case ActorType.apple:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type = EnumActor.wall;
+                    snake[0].type = ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
                     length++;
                     map.addApple();
@@ -144,22 +144,22 @@ namespace Snake
 
             switch (map.pole[(int)Head.Y, (int)Head.X].type)
             {
-                case EnumActor.grass:
+                case ActorType.grass:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type = EnumActor.wall;
+                    snake[0].type = ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
-                    snake[snake.Count - 1].rectangle.Fill = map.ColorPixel;
-                    snake[snake.Count - 1].type = EnumActor.grass;
+                    snake[snake.Count - 1].rectangle.Fill = ColorActor.grass;
+                    snake[snake.Count - 1].type = ActorType.grass;
                     snake.RemoveAt(snake.Count - 1);
                     break;
-                case EnumActor.wall:
+                case ActorType.wall:
                     hitWall();
                     break;
-                case EnumActor.apple:
+                case ActorType.apple:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type = EnumActor.wall;
+                    snake[0].type = ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
                     length++;
                     map.addApple();
@@ -172,22 +172,22 @@ namespace Snake
 
             switch (map.pole[(int)Head.Y, (int)Head.X].type)
             {
-                case EnumActor.grass:
+                case ActorType.grass:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type = EnumActor.wall;
+                    snake[0].type = ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
-                    snake[snake.Count - 1].rectangle.Fill = map.ColorPixel;
-                    snake[snake.Count - 1].type = EnumActor.grass;
+                    snake[snake.Count - 1].rectangle.Fill = ColorActor.grass;
+                    snake[snake.Count - 1].type = ActorType.grass;
                     snake.RemoveAt(snake.Count - 1);
                     break;
-                case EnumActor.wall:
+                case ActorType.wall:
                     hitWall();
                     break;
-                case EnumActor.apple:
+                case ActorType.apple:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type = EnumActor.wall;
+                    snake[0].type = ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
                     length++;
                     map.addApple();
@@ -200,22 +200,22 @@ namespace Snake
 
             switch (map.pole[(int)Head.Y, (int)Head.X].type)
             {
-                case EnumActor.grass:
+                case ActorType.grass:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type = EnumActor.wall;
+                    snake[0].type = ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
-                    snake[snake.Count - 1].rectangle.Fill = map.ColorPixel;
-                    snake[snake.Count - 1].type = EnumActor.grass;
+                    snake[snake.Count - 1].rectangle.Fill = ColorActor.grass;
+                    snake[snake.Count - 1].type = ActorType.grass;
                     snake.RemoveAt(snake.Count - 1);
                     break;
-                case EnumActor.wall:
+                case ActorType.wall:
                     hitWall();
                     break;
-                case EnumActor.apple:
+                case ActorType.apple:
                     snake.Insert(0, map.pole[(int)Head.Y, (int)Head.X]);
                     snake[0].rectangle.Fill = SnakeHeadBrushes;
-                    snake[0].type = EnumActor.wall;
+                    snake[0].type = ActorType.wall;
                     snake[1].rectangle.Fill = SnakeBrushes;
                     length++;
                     map.addApple();

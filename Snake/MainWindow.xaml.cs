@@ -34,11 +34,13 @@ namespace Snake
 
         bool EndGame = false;
         int Score = -2;
+        public String name;
 
-        public MainWindow()
+        public MainWindow(string name)
         {
-            
+
             InitializeComponent();
+            this.name = name;
         }
 
 
@@ -56,9 +58,10 @@ namespace Snake
             int x = 0;
             while (true)
             {
-                y = random.Next(1, map.SizeY);
-                x = random.Next(1, map.SizeX);
-                if (map.pole[y, x].type == EnumActor.grass)
+                int c = map.MapGenerateApple[random.Next(1, map.MapGenerateApple.GetLength(0))];
+                y =c/map.SizeX;
+                x=c%map.SizeX;
+                if (map.pole[y, x].type == ActorType.grass)
                 {
                     map.NewApple(y, x);
                     break;
@@ -70,15 +73,21 @@ namespace Snake
         {
             hitWall = GameOver;
             Apple = AddApple;
+            if (Save.FindMap(name) == -1)
+            {
+                map = new Map(Save.GetDefaultMap(Save.FindDefaultMap(name)), Apple);
+            }
+            else
+            {
+                map = new Map(Save.GetMap(Save.FindMap(name)), Apple);
+            }
 
-            map = new Map(50, 30, 18, 18, Brushes.MediumSeaGreen, Apple);
 
-            snake = new Snakes(map, map.SizeY/2, map.SizeX/2, 3, Brushes.LightGreen,Brushes.Green,hitWall);
+            snake = new Snakes(map, map.parametrsMap.LocationSnakeY, map.parametrsMap.LocationSnakeX, 3, Brushes.LightGreen,Brushes.Green,hitWall);
             
 
 
             map.AddToGrid(Grid);
-            map.CreateWall(Brushes.Gray);
 
             timer.Interval = TimeSpan.FromMilliseconds(1);
             timer.Tick += Timer_Tick;
@@ -98,51 +107,56 @@ namespace Snake
             if (!EndGame)
             {
                 move();
-                Thread.Sleep(47);
+                Thread.Sleep(58);
             }
         }
 
 
         private void keyDown(object sender, KeyEventArgs e)
         {
-            switch (e.Key)
+            try
             {
-                case Key.W:
-                    if (!snake.ReturnMoveUP())
-                    {
-                        move = snake.moveUp;
-                    }
-                    break;
-                case Key.S:
-                    if (!snake.ReturnMoveDown())
-                    {
-                        move = snake.moveDown;
-                    }                    
-                    break;
-                case Key.A:
-                    if (!snake.ReturnMoveLeft())
-                    {
-                        move = snake.moveLeft;
-                    }                   
-                    break;
-                case Key.D:
-                    if (!snake.ReturnMoveRigts())
-                    {
-                        move = snake.moveRigts;
-                    }                   
-                    break;
-            }             
+                switch (e.Key)
+                {
+                    case Key.W:
+                        if (!snake.ReturnMoveUP())
+                        {
+                            move = snake.moveUp;
+                        }
+                        break;
+                    case Key.S:
+                        if (!snake.ReturnMoveDown())
+                        {
+                            move = snake.moveDown;
+                        }
+                        break;
+                    case Key.A:
+                        if (!snake.ReturnMoveLeft())
+                        {
+                            move = snake.moveLeft;
+                        }
+                        break;
+                    case Key.D:
+                        if (!snake.ReturnMoveRigts())
+                        {
+                            move = snake.moveRigts;
+                        }
+                        break;
+                }
+            }
+            catch
+            { }
         }
 
         private void wa_Click(object sender, RoutedEventArgs e)
         {
-            map.Restart(18, 18, Brushes.MediumSeaGreen, Apple);
+            map.Restart();
 
-            snake.Restart(map, map.SizeY / 2, map.SizeX / 2, 3, Brushes.LightGreen, Brushes.Green, hitWall);
+            snake.Restart(map, map.parametrsMap.LocationSnakeY, map.parametrsMap.LocationSnakeX, 3, Brushes.LightGreen, Brushes.Green, hitWall);
 
 
 
-            map.CreateWall(Brushes.Gray);
+
 
             move = snake.moveUp;
 

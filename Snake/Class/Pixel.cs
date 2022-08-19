@@ -10,6 +10,6 @@ namespace Snake
     public class Pixel
     {
         public Rectangle rectangle = new Rectangle();
-        public EnumActor type = EnumActor.grass;
+        public ActorType type = ActorType.grass;
     }
 }

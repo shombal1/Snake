@@ -1,0 +1,16 @@
+﻿<Window x:Class="Snake.CreateMap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snake"
+        mc:Ignorable="d"
+        Title="CreateMap" Height="578" Width="1030" MaxHeight="578" MaxWidth="1030"  MinWidth="1030"  MinHeight="578" Focusable="False">
+    <Grid x:Name="Grid" Loaded="Load" MouseDown="Grid_DrawMouseDown" MouseUp="Grid_DrawMouseUp" Margin="0,0,0,0" Height="540" VerticalAlignment="Top" Width="1020" HorizontalAlignment="Left">
+        <Label x:Name="label" Content="DrawLocation" HorizontalAlignment="Left" Margin="927,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.279,0.53"/>
+        <Button Content="Save" FontSize="20" HorizontalAlignment="Left" Margin="916,477,0,0" VerticalAlignment="Top" Height="53" Width="83" Click="Button_Click"/>
+        <Button x:Name="B_Wall" Content="" HorizontalAlignment="Left" Margin="927,189,0,0" VerticalAlignment="Top" Width="25" Height="25" Background="Black" Click="Wall_Click"/>
+        <Button x:Name="B_Grass" Content="" HorizontalAlignment="Left" Margin="958,189,0,0" VerticalAlignment="Top" Width="24" Height="25" Background="Black" Click="Grass_Click"/>
+        <local:SnakeSample x:Name="SnakeSpawn" HorizontalAlignment="Left"  Margin="940,270,0,0" VerticalAlignment="Top" Panel.ZIndex="3"   RenderTransformOrigin="0,0" MouseDown="SnakeSpawn_MouseDown" />
+    </Grid>
+</Window>

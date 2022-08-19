@@ -1,0 +1,42 @@
+﻿<Window x:Class="Snake.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snake"
+        mc:Ignorable="d"
+        Title="Menu" Height="578" Width="1020" MaxHeight="578" MaxWidth="1020"  MinWidth="1020"  MinHeight="578" >
+    <Grid Focusable="False" Loaded="Grid_Loaded">
+
+        <Button Focusable="False" Content="CreateMap" FontSize="20" HorizontalAlignment="Left" Margin="100,463,0,0" VerticalAlignment="Top" Height="65" Width="174" Click="Button_Click"/>
+        <TextBox Focusable="true" x:Name="TB_Name" HorizontalAlignment="Left" FontSize="20" Margin="308,478,0,0" TextWrapping="Wrap" Text="NewMap" VerticalAlignment="Top" Width="142" Height="34"/>
+        <TabControl Margin="0,0,0,110" VerticalAlignment="Stretch">
+            <TabItem Header="MyMap"  Height="80"  HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="500" Padding="0,0,0,0" >
+                <Grid>
+                    <ScrollViewer Focusable="False" x:Name="List" Margin="0,0,0,0">
+                        <Grid Focusable="False" x:Name="Gride"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.RowDefinitions >
+                            </Grid.RowDefinitions>
+
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="DefaultMap" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Height="80" Width="500" Padding="0,0,0,0" >
+                <Grid>
+                    <ScrollViewer Focusable="False" x:Name="ListDefault" Margin="0,0,0,0">
+                        <Grid Focusable="False" x:Name="GrideDefault"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.RowDefinitions >
+                            </Grid.RowDefinitions>
+
+                        </Grid>
+                    </ScrollViewer>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+
+    </Grid>
+</Window>
